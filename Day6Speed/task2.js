@@ -28,9 +28,8 @@ function getWaysToRecord(arg) {
 }
 const fs = require('node:fs');
 
-const samplePath = 'adventOfCode2023/Day6Speed/sample.txt'
-const fullPath = 'adventOfCode2023/Day6Speed/full.txt' 
-const partPath = 'adventOfCode2023/Day6Speed/part.txt'
+const samplePath = 'Day6Speed/sample.txt'
+const fullPath = 'Day6Speed/full.txt' 
 
 fs.readFile(fullPath, 'utf-8', (error, data) => {
 	if (error) {
