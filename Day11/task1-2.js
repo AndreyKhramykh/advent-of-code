@@ -31,15 +31,15 @@ function getResult(input) {
 				}
 			}
 		}
-		return { emptyRowIndexes, emptyColumnIndexes, galaxiesCoords, map }
+		return { emptyRowIndexes, emptyColumnIndexes, galaxiesCoords}
 	}
 
-	const { emptyRowIndexes, emptyColumnIndexes, galaxiesCoords, map } =
+	const { emptyRowIndexes, emptyColumnIndexes, galaxiesCoords} =
 		transformData(input)
 
 	const result = []
 
-	// We can expand the universe to any value thanks to this index
+	// We can expand the universe to any value thanks to this index, for example in double times(2-1), in million times (1000000 - 1)
 	let indexOfUniverseExpansion = 1000000 - 1
 
 	// Count quantity of intersections
