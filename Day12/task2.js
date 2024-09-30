@@ -1,30 +1,23 @@
 function getResult(data) {
-	const input = data.split('\n')
+	let input = data.split('\n')
 
 	let result = 0
-	// console.log(`output->input`,input)
 
 	for (let line of input) {
 		let [code, numbers] = line.split(' ')
 		numbers = numbers.split(',').map(Number)
 
-		// console.log(`output->`,code)
-		// console.log(`output->`,numbers)
-
 		let number = [0]
-		let dictionary = code + '?'
-		// console.log(`output->dictionary`,dictionary)
+		let dictionary = ''
 
-		number = number.concat(numbers)
-		// console.log(`output->`,dictionary)
-		// console.log(`output->number`,number)
-
+		for (let i = 0; i < 5; i++) {
+			dictionary = dictionary + (code + '?')
+			number = number.concat(numbers)
+		}
 		let counts = []
 		for (let i = 0; i < dictionary.length; i++) {
 			counts[i] = []
 		}
-		// console.log(`output->`,dictionary)
-		// console.log(`output->counts`,counts)
 
 		let calculate = (m, n) => {
 			if (m == -1 && n == 0) return 1
@@ -35,10 +28,7 @@ function getResult(data) {
 		for (let i = 0; i < number.length; i++) {
 			for (let j = 0; j < dictionary.length; j++) {
 				let cur = 0
-				if (dictionary[j] != '#') {
-					cur += calculate(j - 1, i)
-					// console.log(`output->cur`,cur)
-				}
+				if (dictionary[j] != '#') cur += calculate(j - 1, i)
 				if (i > 0) {
 					let d = true
 					for (let k = 1; k <= number[i]; k++) {
@@ -50,10 +40,10 @@ function getResult(data) {
 				counts[j][i] = cur
 			}
 		}
-
 		result += counts[dictionary.length - 1][number.length - 1]
 	}
-	console.log(result)
+
+	console.log(`output->result`,result)
 }
 const fs = require('node:fs')
 
